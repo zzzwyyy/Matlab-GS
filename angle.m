@@ -14,26 +14,26 @@ q0=1/(-1i*lambda/pi/w0^2);
 L1=100;
 
  
-wz=zeros(size(z));
-az=zeros(size(z));
+wz=zeros(size(z));   % 每个位置的光斑大小组成的数组
+az=zeros(size(z));   % 每个位置的发散角组成的数组
 
 for gk =1:1000   
       if z(gk)<=L1
          M=[1,z(gk);0,1];
          q=(M(1,1)*q0+M(1,2))/(M(2,1)*q0+M(2,2));
          wz(gk)=sqrt(-1/imag(1/q)/pi*lambda);
-         az(gk)=2*lambda/(pi*wz(gk));
+         az(gk)=2*lambda/(pi*wz(gk));    % 发散角公式
          
      elseif z(gk)>L1&&z(gk)<=(100+F1+F2)
                  M=[1,z(gk)-L1;0,1]*Mf1*[1,L1;0,1];
                   q=(M(1,1)*q0+M(1,2))/(M(2,1)*q0+M(2,2));
                       wz(gk)=sqrt(-1/imag(1/q)/pi*lambda);
-                     az(gk)=2*lambda/(pi*wz(gk));
+                     az(gk)=2*lambda/(pi*wz(gk));   % 发散角公式
       elseif z(gk)>(100+F1+F2)
              M=[1,z(gk)-(L1+F1+F2);0,1]*Mf2*[1,+F1+F2;0,1]*Mf1*[1,L1;0,1];
              q=(M(1,1)*q0+M(1,2))/(M(2,1)*q0+M(2,2));
         wz(gk)=sqrt(-1/imag(1/q)/pi*lambda);
-        az(gk)=2*lambda/(pi*wz(gk));
+        az(gk)=2*lambda/(pi*wz(gk));     % 发散角公式
       end
        
 end
