@@ -41,5 +41,5 @@ figure(1)
 plot(z,az,'b',z,-az,'b');
 title('高斯光束的发散角');
 xlabel('z/mm');
-ylabel('az/mm');
+ylabel('az/rad');
 hold on;
