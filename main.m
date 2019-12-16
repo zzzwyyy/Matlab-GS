@@ -14,7 +14,7 @@ q0=1/(-1i*lambda/pi/w0^2);    % z=0时，q参数的值, q0=i*f
 L1=100;    % 焦点到第一个薄透镜之间的距离
 
  
-wz=zeros(size(z));
+wz=zeros(size(z));   
   
 for gk =1:1000     % 从1到1000的循环
       if z(gk)<=L1     % 第一部分
